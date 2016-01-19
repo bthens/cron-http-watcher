@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+    <style>
+        body {
+            background-color:#F0F2F2;
+            color: #2E2E2E;
+            font-family: 'Roboto Condensed', sans-serif;
+        }
+
+        .green {
+            color: #BCCF02;
+        }
+
+        .red {
+            color: #F0563D;
+        }
+
+        #main {
+            width: 410px;
+            margin:100px auto;
+            text-align: center;
+        }
+
+        table {
+            margin:1px auto;
+        }
+
+        td {
+            padding:3px 5px 3px 5px;
+        }
+
+        tr td:first-child {
+            text-align:right;
+        }
+
+        h1 {
+            color: #1394CC;
+            text-align:center;
+            text-shadow: 1px 1px 3px rgb(179, 179, 179);
+        }
+
+        #footer {
+            text-weight:light;
+            text-align:center;
+            font-size:0.8em;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+    <h1>RPi&#8709; Watch</h1>
+    <table>
+    {% for x in status %}
+        <tr>
+            <td><b>{{x.capitalize()}}</b></td>
+            <td>{%if status[x] %}<i class="green">In stock</i>{% else %}
+                <i class="red">Out of stock</i>{% endif %}
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+    </div>
+    <div id="footer">
+        <p>You have to be on mailing list to receive status updates automatically.</p>
+    </div>
+</body>
+</html>
